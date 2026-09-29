@@ -121,8 +121,12 @@ jobs:
 
     - name: Getting tools ready 
       run: |
+        sudo apt update
+        sudo apt install ffmpeg
         sudo apt install unrar
         wget https://mega.nz/linux/repo/xUbuntu_24.04/amd64/megacmd-xUbuntu_24.04_amd64.deb && sudo apt install "$PWD/megacmd-xUbuntu_24.04_amd64.deb"
+        chmod +x watermark.sh
+        chmod +x move_videos.sh
     
     - name: Login to Mega!
       run: |
