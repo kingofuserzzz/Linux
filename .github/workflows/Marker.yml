@@ -1,0 +1,337 @@
+name: Marker
+
+on:
+  workflow_dispatch:
+    inputs:
+      USERNAME:
+        description: 'Username'
+        required: true
+        default: 'Email '
+      PASSWORD:
+        description: 'Password'
+        required: true
+        default: 'Pass'
+      FILE_LINK1:
+        description: 'Link of File 1'
+        required: true
+        default: 'XXXX'
+      FILE_LINK1x:
+        description: 'Link of File 2'
+        required: true
+        default: 'XXXX'
+      FILE_LINK2x:
+        description: 'Link of File 3'
+        required: true
+        default: 'XXXX'
+      FILE_LINK3x:
+        description: 'Link of File 4'
+        required: true
+        default: 'XXXX'
+      FILE_LINK4x:
+        description: 'Link of File 5'
+        required: true
+        default: 'XXXX'
+      FILE_LINK5x:
+        description: 'Link of File 6'
+        required: true
+        default: 'XXXX'
+      FILE_LINK6x:
+        description: 'Link of File 7'
+        required: true
+        default: 'XXXX'
+      FILE_LINK7x:
+        description: 'Link of File 8'
+        required: true
+        default: 'XXXX'
+      FILE_LINK8x:
+        description: 'Link of File 9'
+        required: true
+        default: 'XXXX'
+      FILE_LINK9x:
+        description: 'Link of File 10'
+        required: true
+        default: 'XXXX'
+      FILE_LINK10x:
+        description: 'Link of File 11'
+        required: true
+        default: 'XXXX'
+      FILE_LINK11x:
+        description: 'Link of File 12'
+        required: true
+        default: 'XXXX'
+      FILE_LINK2:
+        description: 'Link of File 1-2'
+        required: true
+        default: 'XXXX'
+      FILE_LINK3:
+        description: 'Link of File 1-3'
+        required: true
+        default: '==============================='
+      FILE_LINK4:
+        description: 'Link of File 2-1'
+        required: true
+        default: 'XXXX'
+      FILE_LINK5:
+        description: 'Link of File 2-2'
+        required: true
+        default: 'XXXX'
+      FILE_LINK6:
+        description: 'Link of File 2-3'
+        required: true
+        default: '==============================='
+      FILE_LINK7:
+        description: 'Link of File 3-1'
+        required: true
+        default: 'XXXX'
+      FILE_LINK8:
+        description: 'Link of File 3-2'
+        required: true
+        default: 'XXXX'
+      FILE_LINK9:
+        description: 'Link of File 3-3'
+        required: true
+        default: '==============================='
+      FILE_LINK10:
+        description: 'Link of File 4-1'
+        required: true
+        default: 'XXXX'
+      FILE_LINK11:
+        description: 'Link of File 4-2'
+        required: true
+        default: 'XXXX'
+      FILE_LINK12:
+        description: 'Link of File 4-3'
+        required: true
+        default: '==============================='
+
+jobs:
+  build:
+    name: Mega Uploader by ${{ github.actor }}
+    runs-on: ubuntu-24.04
+    if: github.event.repository.owner.id == github.event.sender.id
+    env:
+        MEGA_USERNAME: ${{ secrets.MEGA_USERNAME }}
+        MEGA_PASSWORD: ${{ secrets.MEGA_PASSWORD }}
+        
+    permissions:
+      contents: write
+    steps:
+    - name: Checkout
+      uses: actions/checkout@v7
+
+    - name: Getting tools ready 
+      run: |
+        sudo apt install unrar
+        wget https://mega.nz/linux/repo/xUbuntu_24.04/amd64/megacmd-xUbuntu_24.04_amd64.deb && sudo apt install "$PWD/megacmd-xUbuntu_24.04_amd64.deb"
+    
+    - name: Login to Mega!
+      run: |
+        mega-login "${{ github.event.inputs.USERNAME }}" "${{ github.event.inputs.PASSWORD }}"
+        mega-mkdir Telegram_Goodvid69
+      continue-on-error: true
+      
+    - name: Adding Logo!
+      run: |
+        wget https://github.com/kingofuserzzz/zzz/releases/download/fgsdfg/HexZex69.png
+        mega-put HexZex69.png Telegram_Goodvid69/
+        rm HexZex69.png
+      continue-on-error: true
+      
+    - name: Downloading file 1
+      run: |
+        wget ${{ github.event.inputs.FILE_LINK1 }}
+        unrar x MEGA.rar
+        rm MEGA.rar
+      continue-on-error: true
+    - name: Downloading file 2
+      run: |
+        wget ${{ github.event.inputs.FILE_LINK1x }}
+        unrar x MEGA.rar
+        rm MEGA.rar
+      continue-on-error: true
+    - name: Downloading file 3
+      run: |
+        wget ${{ github.event.inputs.FILE_LINK2x }}
+        unrar x MEGA.rar
+        rm MEGA.rar
+      continue-on-error: true
+    - name: Downloading file 4
+      run: |
+        wget ${{ github.event.inputs.FILE_LINK3x }}
+        unrar x MEGA.rar
+        rm MEGA.rar
+      continue-on-error: true
+    - name: Downloading file 5
+      run: |
+        wget ${{ github.event.inputs.FILE_LINK4x }}
+        unrar x MEGA.rar
+        rm MEGA.rar
+      continue-on-error: true
+    - name: Downloading file 6
+      run: |
+        wget ${{ github.event.inputs.FILE_LINK5x }}
+        unrar x MEGA.rar
+        rm MEGA.rar
+      continue-on-error: true
+    - name: Downloading file 7
+      run: |
+        wget ${{ github.event.inputs.FILE_LINK6x }}
+        unrar x MEGA.rar
+        rm MEGA.rar
+      continue-on-error: true
+    - name: Downloading file 8
+      run: |
+        wget ${{ github.event.inputs.FILE_LINK7x }}
+        unrar x MEGA.rar
+        rm MEGA.rar
+      continue-on-error: true
+    - name: Downloading file 9
+      run: |
+        wget ${{ github.event.inputs.FILE_LINK8x }}
+        unrar x MEGA.rar
+        rm MEGA.rar
+      continue-on-error: true
+    - name: Downloading file 10
+      run: |
+        wget ${{ github.event.inputs.FILE_LINK9x }}
+        unrar x MEGA.rar
+        rm MEGA.rar
+      continue-on-error: true
+    - name: Downloading file 11
+      run: |
+        wget ${{ github.event.inputs.FILE_LINK10x }}
+        unrar x MEGA.rar
+        rm MEGA.rar
+      continue-on-error: true
+    - name: Downloading file 12
+      run: |
+        wget ${{ github.event.inputs.FILE_LINK11x }}
+        unrar x MEGA.rar
+        rm MEGA.rar
+      continue-on-error: true
+    - name: Downloading file 14
+      run: |
+        wget ${{ github.event.inputs.FILE_LINK2 }}
+        unrar x MEGA.rar
+        rm MEGA.rar
+      continue-on-error: true
+    - name: Downloading file 15
+      run: |
+        wget ${{ github.event.inputs.FILE_LINK3 }}
+        unrar x MEGA.rar
+        rm MEGA.rar
+      continue-on-error: true
+      
+    - name: Extracting
+      run: |
+        unrar x MEGA.part1.rar
+      continue-on-error: true
+      
+    - name: Processing Files
+      run: |
+        RANDOM_NAME="Mega_$(tr -dc 'A-Za-z0-9' </dev/urandom | head -c 6)"
+        mv Mega "$RANDOM_NAME"
+        mega-put "$RANDOM_NAME/" Telegram_Goodvid69/
+        rm -rf *
+      continue-on-error: true
+      
+    - name: Downloading file 2-1
+      run: |
+        wget ${{ github.event.inputs.FILE_LINK4 }}
+        unrar x MEGA.rar
+        rm MEGA.rar
+      continue-on-error: true
+    - name: Downloading file 2-2
+      run: |
+        wget ${{ github.event.inputs.FILE_LINK5 }}
+        unrar x MEGA.rar
+        rm MEGA.rar
+      continue-on-error: true
+    - name: Downloading file 2-3
+      run: |
+        wget ${{ github.event.inputs.FILE_LINK6 }}
+        unrar x MEGA.rar
+        rm MEGA.rar
+      continue-on-error: true
+      
+    - name: Extracting
+      run: |
+        unrar x MEGA.part1.rar
+      continue-on-error: true
+      
+    - name: Processing Files
+      run: |
+        RANDOM_NAME="Mega_$(tr -dc 'A-Za-z0-9' </dev/urandom | head -c 6)"
+        mv Mega "$RANDOM_NAME"
+        mega-put "$RANDOM_NAME/" Telegram_Goodvid69/
+        rm -rf *
+      continue-on-error: true
+      
+    - name: Downloading file 3-1
+      run: |
+        wget ${{ github.event.inputs.FILE_LINK7 }}
+        unrar x MEGA.rar
+        rm MEGA.rar
+      continue-on-error: true
+    - name: Downloading file 3-2
+      run: |
+        wget ${{ github.event.inputs.FILE_LINK8 }}
+        unrar x MEGA.rar
+        rm MEGA.rar
+      continue-on-error: true
+    - name: Downloading file 3-3
+      run: |
+        wget ${{ github.event.inputs.FILE_LINK9 }}
+        unrar x MEGA.rar
+        rm MEGA.rar
+      continue-on-error: true
+      
+    - name: Extracting
+      run: |
+        unrar x MEGA.part1.rar
+      continue-on-error: true
+      
+    - name: Processing Files
+      run: |
+        RANDOM_NAME="Mega_$(tr -dc 'A-Za-z0-9' </dev/urandom | head -c 5)"
+        mv Mega "$RANDOM_NAME"
+        mega-put "$RANDOM_NAME/" Telegram_Goodvid69/
+        rm -rf *
+      continue-on-error: true
+      
+    - name: Downloading file 4-1
+      run: |
+        wget ${{ github.event.inputs.FILE_LINK10 }}
+        unrar x MEGA.rar
+        rm MEGA.rar
+      continue-on-error: true
+    - name: Downloading file 4-2
+      run: |
+        wget ${{ github.event.inputs.FILE_LINK11 }}
+        unrar x MEGA.rar
+        rm MEGA.rar
+      continue-on-error: true
+    - name: Downloading file 4-3
+      run: |
+        wget ${{ github.event.inputs.FILE_LINK12 }}
+        unrar x MEGA.rar
+        rm MEGA.rar
+      continue-on-error: true
+      
+    - name: Extracting
+      run: |
+        unrar x MEGA.part1.rar
+      continue-on-error: true
+      
+    - name: Processing Files
+      run: |
+        RANDOM_NAME="Mega_$(tr -dc 'A-Za-z0-9' </dev/urandom | head -c 4)"
+        mv Mega "$RANDOM_NAME"
+        mega-put "$RANDOM_NAME/" Telegram_Goodvid69/
+        rm -rf *
+      continue-on-error: true
+      
+    - name: Uploading Results
+      run: |
+        echo "Yes" | mega-export -a Telegram_Goodvid69/
+      continue-on-error: true
