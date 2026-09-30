@@ -234,6 +234,7 @@ jobs:
     - name: Moving files !!!
       run: |
         ls -la
+        sed -i 's/\r$//' move_videos.sh
         chmod +x move_videos.sh
         ./move_videos.sh
       continue-on-error: true
