@@ -1,7 +1,7 @@
 #!/bin/bash
 
-SOURCE="/workspaces/Linux/Videos"
-DEST="/workspaces/Linux/AllVideos"
+SOURCE="/home/runner/work/Linux/Linux/Mega"
+DEST="/home/runner/work/Linux/Linux/input"
 
 mkdir -p "$DEST"
 
