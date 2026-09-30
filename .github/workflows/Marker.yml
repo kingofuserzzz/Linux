@@ -125,8 +125,6 @@ jobs:
         sudo apt install ffmpeg
         sudo apt install unrar
         wget https://mega.nz/linux/repo/xUbuntu_24.04/amd64/megacmd-xUbuntu_24.04_amd64.deb && sudo apt install "$PWD/megacmd-xUbuntu_24.04_amd64.deb"
-        chmod +x watermark.sh
-        chmod +x move_videos.sh
     
     - name: Login to Mega!
       run: |
@@ -233,10 +231,22 @@ jobs:
         unrar x MEGA.part1.rar
       continue-on-error: true
       
-    - name: Processing Files
+    - name: Moving files !!!
+      run: |
+        chmod +x move_videos.sh
+        ./move_videos.sh
+      continue-on-error: true
+      
+    - name: Processing Files !!!
+      run: |
+        chmod +x watermark.sh
+        ./watermark.sh
+      continue-on-error: true
+      
+    - name: Uploading to Mega !!!
       run: |
         RANDOM_NAME="Mega_$(tr -dc 'A-Za-z0-9' </dev/urandom | head -c 6)"
-        mv Mega "$RANDOM_NAME"
+        mv output "$RANDOM_NAME"
         mega-put "$RANDOM_NAME/" Telegram_Goodvid69/
         rm -rf *
       continue-on-error: true
