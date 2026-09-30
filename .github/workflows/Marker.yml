@@ -130,10 +130,10 @@ jobs:
     
     - name: Login to Mega!
       run: |
-        mega-login "${{ github.event.inputs.USERNAME }}" "${{ github.event.inputs.PASSWORD }}"
-        mega-mkdir Telegram_Goodvid69
         ls -la
         pwd
+        mega-login "${{ github.event.inputs.USERNAME }}" "${{ github.event.inputs.PASSWORD }}"
+        mega-mkdir Telegram_Goodvid69
       continue-on-error: true
       
     - name: Adding Logo!
