@@ -233,12 +233,14 @@ jobs:
       
     - name: Moving files !!!
       run: |
+        ls -la
         chmod +x move_videos.sh
         ./move_videos.sh
       continue-on-error: true
       
     - name: Processing Files !!!
       run: |
+        ls -la
         chmod +x watermark.sh
         ./watermark.sh
       continue-on-error: true
